@@ -1,2 +1,15 @@
 module.exports = angular.module('app.controllers', []);
-require('./welcome.js');
+require('./appCtrl.js');
+require('./chatCtrl.js');
+require('./homeCtrl.js');
+require('./loginCtrl.js');
+require('./mod.menuCtrl.js');
+require('./mod.profileCtrl.js');
+require('./mod.projecthoursCtrl.js');
+require('./mod.projectsCtrl.js');
+require('./mod.usergroupCtrl.js');
+require('./mod.usersCtrl.js');
+require('./navCtrl.js');
+require('./settingsCtrl.js');
+require('./sidebarCtrl.js');
+require('./vp.configCtrl.js');
