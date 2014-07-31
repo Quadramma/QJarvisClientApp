@@ -19,6 +19,7 @@ module.factory('$QJConfig', ['$QJLogger', '$rootScope', '$state', '$timeout', '$
 				$.getJSON("config.json", function(data) {
 					console.info('[CONFIG.JSON][OK]');
 					self.api = data.api;
+					self.cache_expiration_minutes = data.cache_expiration_minutes;
 				});
 
 

@@ -105,6 +105,10 @@ module.controller('ProjectEditController', function(
 
     $QJLogger.log("ProjectEditController -> initialized");
 
+    $scope.id = $state.params.id;
+    var _project_id = $state.params.id;
+    var action = (($scope.id.toString() === '-1')?'New':'Edit');
+
     $scope.breadcrumb = {
         name: 'Project',
         list: [{
@@ -112,11 +116,15 @@ module.controller('ProjectEditController', function(
             state: 'module-project-list',
             //fa: 'fa-dashboard'
         }],
-        active: 'Loading...'
+        active: action
     };
 
 
-    var _project_id = $state.params.id;
+
+
+    $scope.enableDelete = function(){
+        return $scope.id && $scope.id.toString() != '-1';
+    };
 
     $scope.crud = {
         errors: []

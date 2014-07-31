@@ -1,6 +1,10 @@
 var module = require('./_module_init.js');
+
+
+
+
 module.controller('ProfileListController', function(
-	$QJCCombobox, $QJCSelectkey, $QJCListview, $QJCFilter, $QJLogger, $QJHelperFunctions, $scope, $rootScope, $QJLoginModule, $QJApi, $timeout, $state, $QJLoginModule
+	$QJCCombobox, $QJCListview, $QJCFilter, $QJLogger, $QJHelperFunctions, $scope, $rootScope, $QJLoginModule, $QJApi, $timeout, $state, $QJLoginModule
 ) {
 
 	$QJLogger.log("ProfileListController -> initialized");
@@ -66,21 +70,25 @@ module.controller('ProfileListController', function(
 module.controller('ProfileEditController', function(
 	$QJCCombobox, $QJCSelectkey, $QJCListview, $QJCFilter, $QJLogger, $QJHelperFunctions, $scope, $rootScope, $QJLoginModule, $QJApi, $timeout, $state, $QJLoginModule
 ) {
-
+	$scope.id = $state.params.id;
+	var _id = $state.params.id;
+	var action = ((_id.toString() === '-1')?'New':'Edit');
 	$QJLogger.log("ProfileEditController -> initialized");
 	$scope.breadcrumb = {
-		name: 'Profile Edit',
+		name: 'Profile '+action,
 		list: [{
 			name: "Profiles",
 			state: 'module-profile-list',
 			//fa: 'fa-dashboard'
 		}, ],
-		active: "Loading..."
+		active: action
 	};
 
+	$scope.enableDelete = function(){
+		return $scope.id && $scope.id.toString() != '-1';
+	};
 
-
-	var _id = $state.params.id;
+	
 
 	$scope.crud = {
 		errors: []
@@ -113,7 +121,7 @@ module.controller('ProfileEditController', function(
 		};
 	};
 	$scope.delete = function() {
-		var r = confirm("Delete " + $scope.item.name + " ?");
+		var r = confirm("Delete " + $scope.item.description + " ?");
 		if (r == true) {
 			$QJApi.getController('profile').post({
 				action: 'delete'
@@ -161,4 +169,3 @@ module.controller('ProfileEditController', function(
 
 });
 
-;

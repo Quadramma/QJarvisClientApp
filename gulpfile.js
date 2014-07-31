@@ -136,25 +136,27 @@ gulp.task('vendor', function() {
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('build'))
     .pipe(filesize())
-    /*
+});
+
+gulp.task('vendorminify', function() {
+  return gulp.src('vendor/**/*.js')    
+    .pipe(concat('vendor.min.js'))
     .pipe(uglify())
-    .pipe(rename('vendor.min.js'))
-    //.pipe(changed('build'))
     .pipe(gulp.dest('build'))
     .pipe(filesize())
-    */
     .on('error', gutil.log)
 });
 
 gulp.task('default', [
   //'clean',
   //'html',
-  'css',
+  //'css',
   'js',
   //'jsminify',
   //'cssminify',
   //'html:watch',
   'css:watch',
   'jss:watch',
-  'vendor'
+  'vendor',
+  //'vendorminify'
 ]);

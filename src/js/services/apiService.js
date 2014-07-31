@@ -1,6 +1,6 @@
 var module = require('./_module_init.js');
-module.factory('$QJApi', ['$QJLogger', "$QJConfig", "$resource", '$QJErrorHandler', '$rootScope',
-	function($QJLogger, $QJConfig, $resource, $QJErrorHandler, $rootScope) {
+module.factory('$QJApi', ['$QJTime', '$QJLocalSession', '$QJLogger', "$QJConfig", "$resource", '$QJErrorHandler', '$rootScope',
+	function($QJTime, $QJLocalSession, $QJLogger, $QJConfig, $resource, $QJErrorHandler, $rootScope) {
 		var rta = new(function() {
 
 			//api in root
@@ -40,14 +40,110 @@ module.factory('$QJApi', ['$QJLogger', "$QJConfig", "$resource", '$QJErrorHandle
 								}
 							}
 						};
+					},
+					buildCacheItemId: function(ctrlName, params, postData) {
+						var concat = ctrlName;
+						for (var x in params) {
+							var param = params[x];
+							concat += param;
+						}
+						for (var x in postData) {
+							var data = postData[x];
+							concat += data;
+						}
+						return concat;
+					},
+					newCacheItemFunct: function(cacheItem) {
+						cacheItem.setRes = function(res) {
+							var self = this;
+							$QJLocalSession.add(function(session) {
+								session.httpcache[self.index].res = res;
+							});
+						};
+						cacheItem.hasRes = function() {
+							return this.res != null;
+						};
+						return cacheItem;
+					},
+					newCacheItem: function(params) {
+						var rta = {
+							id: params.id,
+							index: params.index,
+							params: {},
+							postData: {},
+							res: null,
+							expiration: (new Date()).getTime(),
+							expirein: $QJTime.getTimestampDuration(
+								$rootScope.config.cache_expiration_minutes / 1000
+							)
+						};
+						rta = this.newCacheItemFunct(rta);
+						return rta;
+					},
+					getCache: function(ctrlName, params, postData) {
+						var self = this;
+						var id = this.buildCacheItemId(ctrlName, params, postData);
+
+						if (!_.isUndefined(params.ignorecache) && params.ignorecache == true) {
+							return {
+								hasRes: function() {
+									return false;
+								},
+								setRes: function() {}
+							}
+						}
+
+						if (!$rootScope.session.httpcache) $rootScope.session.httpcache = [];
+						//tryget
+						var rtacache = null;
+						for (var x in $rootScope.session.httpcache) {
+							var item = $rootScope.session.httpcache[x];
+							if (item.id == id) {
+								rtacache = item;
+
+								var diff =
+									(rtacache.expiration + ((parseInt($rootScope.config.cache_expiration_minutes) * 60) * 1000)) -
+									(new Date()).getTime();
+								if (diff < 0) {
+									rtacache = null;
+									$rootScope.session.httpcache.splice(x, 1);
+								} else {
+
+									rtacache.expirein =
+										$QJTime.getTimestampDuration(diff);
+								}
+								break;
+							}
+						}
+						if (_.isUndefined(rtacache) || _.isNull(rtacache)) {
+							var newItem = self.newCacheItem({
+								id: id,
+								index: $rootScope.session.httpcache.length
+							});
+							$rootScope.session.httpcache.push({
+								id: newItem.id,
+								index: newItem.index,
+								params: newItem.params,
+								postData: newItem.postData,
+								res: newItem.res,
+								expiration: newItem.expiration,
+								expiration_seconds: newItem.expiration_seconds
+							});
+							$QJLocalSession.save();
+							return newItem;
+						} else {
+							rtacache = self.newCacheItemFunct(rtacache);
+							return rtacache;
+						}
 					}
 				};
 
+				/*
 				var call = _apiInfo.start({
 					description: 'Test task for api'
 				});
 				call.end();
-
+				*/
 
 				$rootScope.api = _apiInfo;
 				gapi = $rootScope.api;
@@ -118,11 +214,26 @@ module.factory('$QJApi', ['$QJLogger', "$QJConfig", "$resource", '$QJErrorHandle
 				var controller = {};
 				controller.hasReportedErrors = hasReportedErrors;
 				controller.post = function(params, postData, success) {
+
+					var cache = $rootScope.api.getCache(controllerName, params, postData);
+					if (cache.hasRes()) {
+						if (!hasReportedErrors(cache.res, ignoreBadRequest)) {
+							success(cache.res);
+						}
+						return;
+					}
+
 					var call = $rootScope.api.start(params);
+
+					if (params && params.ignorecache) {
+						delete(params.ignorecache);
+					}
+
 					$res.request(params, postData, function(res) {
 						call.end();
 						if (!hasReportedErrors(res, ignoreBadRequest)) {
 							success(res);
+							cache.setRes(res);
 						}
 					}, function() {
 						call.end();
@@ -130,11 +241,25 @@ module.factory('$QJApi', ['$QJLogger', "$QJConfig", "$resource", '$QJErrorHandle
 					});
 				}
 				controller.get = function(params, success) {
+					var cache = $rootScope.api.getCache(controllerName, params, {});
+					if (cache.hasRes()) {
+						if (!hasReportedErrors(cache.res, ignoreBadRequest)) {
+							success(cache.res);
+						}
+						return;
+					}
+
 					var call = $rootScope.api.start(params);
+
+					if (params && params.ignorecache) {
+						delete(params.ignorecache);
+					}
+
 					$res.get(params, function(res) {
 						call.end();
 						if (!hasReportedErrors(res, ignoreBadRequest)) {
 							success(res);
+							cache.setRes(res);
 						}
 					}, function(res) {
 						call.end();

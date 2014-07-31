@@ -7,3 +7,4 @@ require('./helperService.js')
 require('./localSessionService.js');
 require('./loggerService.js');
 require('./loginService.js');
+require('./timeService.js');

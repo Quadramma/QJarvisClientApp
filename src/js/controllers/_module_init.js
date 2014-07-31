@@ -1,4 +1,4 @@
-module.exports = angular.module('app.controllers', []);
+module.exports = angular.module('app.controllers', ['app.controls']);
 require('./appCtrl.js');
 require('./chatCtrl.js');
 require('./homeCtrl.js');

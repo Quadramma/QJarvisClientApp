@@ -27,7 +27,7 @@
     <div class="row qjsection2 qjrow">
         <div class="col-xs-12 col-lg-5 qjcol">
             <button type="button" class="btn btn-primary" ng-click="save();">Save changes</button>
-            <button type="button" class="btn btn-secondary" ng-click="delete();">Delete</button>
+            <button type="button" ng-show="enableDelete();" class="btn btn-secondary" ng-click="delete();">Delete</button>
             <button type="button" class="btn btn-secondary" ng-click="cancel();">Cancel</button>
         </div>
     </div>

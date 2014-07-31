@@ -1,3 +1,4 @@
 {
-	"api":"http://localhost/git/api-qjarvis/public/api"
+	"api":"http://localhost/git/qjarvis.api/api",
+	"cache_expiration_minutes":"20"
 }

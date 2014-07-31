@@ -14,10 +14,10 @@ angular.element(document).ready(function() {
 		'ui.router',
 		'ngResource',
 		'app.config',
+		'app.controls',
 		'app.controllers',
 		'app.services',
 		'app.directives',
-		'app.controls',
 	];
 
 	var app = angular.module('app', requires);

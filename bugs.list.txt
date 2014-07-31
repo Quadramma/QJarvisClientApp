@@ -1,0 +1,8 @@
+
+
+
+[PENDIENTE]
+# CRUD USER se rompe en edicion de usuario
+# API CACHE mescla las respuestas
+
+[COMPLETADO]

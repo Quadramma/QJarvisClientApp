@@ -18,7 +18,8 @@ module.factory('$QJLoginModule', [
 				//console.info(reqData);
 				var Auth = $QJApi.getController("auth");
 				Auth.post({
-					action: "login"
+					action: "login",
+					ignorecache:true
 				}, reqData, function(res) {
 					$QJLogger.log('QJLogin -> success');
 					$QJAuth.updateSessionFromLogin(res);
