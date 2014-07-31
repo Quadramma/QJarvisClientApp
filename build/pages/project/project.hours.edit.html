@@ -1,0 +1,79 @@
+<section class="content-header">
+    <qjbreadcrumb data="breadcrumb"></qjbreadcrumb>
+</section>
+
+
+<!-- Main content -->
+<section class="content  qjbg1 qjcontent">
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-lg-4 qjcol">
+            <label>Company</label>
+            <input type="text" DISABLED class="form-control" required placeholder="Enter ..." ng-model="item.companyName">
+        </div>
+        <div class="col-xs-12 col-lg-4 qjcol">
+            <label>Project</label>
+            <input type="text" DISABLED class="form-control" required placeholder="Enter ..." ng-model="item.projectName">
+        </div>
+        <div class="col-xs-12 col-lg-4 qjcol">
+            <label>User</label>
+            <input type="text" DISABLED class="form-control" required placeholder="Enter ..." ng-model="item.userName">
+        </div>
+    </div>
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-lg-4 qjcol">
+            <label>Start</label>
+            <div class="dropdown">
+                <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+                    <div class="input-append">
+                        <input type="text" class="input-large" data-ng-model="item.start">
+                        <span class="add-on">
+                            <i class="icon-calendar"></i>
+                        </span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="item.start" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-4 qjcol">
+            <label>End</label>
+            <div class="dropdown">
+                <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+                    <div class="input-append">
+                        <input type="text" class="input-large" data-ng-model="item.end">
+                        <span class="add-on">
+                            <i class="icon-calendar"></i>
+                        </span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="item.end" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-lg-5 qjcol">
+            <div class="box-errors">
+                <ul>
+                    <li ng-repeat="error in crud.errors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row qjsection2 qjrow">
+        <div class="col-xs-12 col-lg-5 qjcol">
+            <button type="button" class="btn btn-primary" ng-click="save();">Save changes</button>
+            <button type="button" class="btn btn-secondary" ng-click="delete();">Delete</button>
+            <button type="button" class="btn btn-secondary" ng-click="cancel();">Cancel</button>
+        </div>
+    </div>
+</section>
+<!-- /.content -->

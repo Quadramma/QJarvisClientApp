@@ -1,0 +1,283 @@
+
+@media screen and (min-width: 320px) {
+
+
+
+
+
+html{
+
+	-webkit-touch-callout: none;
+
+	-webkit-user-select: none;
+
+	-khtml-user-select: none;
+
+	-moz-user-select: none;
+
+	-ms-user-select: none;
+
+	user-select: none;
+
+}
+
+.qjbig.qjfont{
+    font-size: 40px;
+	
+}
+.qjsmall.qjfont{
+    font-size: 11px;
+	
+}
+.qjlink:hover{
+	cursor:pointer;
+}
+
+
+.qjtincontainer{
+	min-height: 50px;
+}
+
+
+
+.qjcopyright{
+    padding: 35px;
+    color: beige;
+    float: right;
+    background: #333;
+}
+.qjfooter{
+    background: #333;
+    height: 100px;
+}
+
+.qjcenter{
+	margin: 0 auto;
+	text-align: center;
+}
+.qjjustify{
+	text-align: left;
+}
+
+
+.qjfloatright{
+
+	float:right;
+
+	position: relative;
+
+	top: -30px;
+
+	right: 20px;
+
+}
+
+.qjbg1{
+    background: #333;
+}
+.qjbg2{}
+.qjbg3{}
+.qjbg4{}
+.qjbg5{}
+.qjbg6{}
+.qjbg7{}
+.qjbg8{}
+.qjbg9{}
+
+.qjcontent{
+}
+.qjrow{
+}
+.qjcol{
+    padding: 10px;
+    margin: 0px;
+}
+
+.qjsection1{
+    background: antiquewhite;
+}
+.qjsection2{
+    background: aquamarine;
+}
+.qjorange{}
+.qjstyle1{}
+.qjstyle2{}
+.qjstyle3{}
+
+.qjwrapper{
+
+		/* padding: 5px; */
+		
+
+		/* margin: 10px 0px; */
+/*
+		border: 1px solid rgba(0,0,0,0.1);
+		*/
+
+}
+
+.qjtitle.qjsmall{
+
+    font-size: x-small;
+
+    padding: 5px 0px;
+
+}
+
+
+
+.no-print{
+
+    display: none;
+
+	
+
+}
+
+
+
+
+
+div.qj.module.container{
+
+    padding-bottom: 50px;
+
+	
+
+}
+
+
+
+
+
+div.qj.module.menu{
+
+    padding: 5px;
+
+
+
+}
+
+div.qj.module.menu div.qj.item{
+
+	
+
+}
+
+div.qj.module.menu div.qj.item a{
+
+	
+
+}
+
+
+
+
+
+div.api.info{
+
+    position: fixed;
+
+
+
+    background: rgba(255,255,255,1);
+
+    bottom: 0px;
+
+    padding: 5px;
+
+    border: 1px solid rgba(22,0,0,0.2);
+
+    width: 320px;
+
+}
+
+div.api.info div{
+
+    display: inline; width: auto;
+
+	
+
+}
+
+div.api.info div.title{
+
+    text-align: center;
+
+	
+
+}
+
+div.api.info div.calls{
+
+	
+
+}
+
+div.api.info div p{
+
+    font-weight: 300;
+
+	
+
+    text-align: left;
+
+    display: inline;
+
+}
+
+div.api.info div.calls p{
+
+	
+
+}
+
+div.api.info div.status p{
+
+	
+
+}
+
+div.api.info div.status{
+
+	
+
+}
+
+
+
+	.qj.wrapper{
+
+		min-height: inherit !important;
+
+	
+
+}
+
+	.qj.stats.wrapper{
+
+		padding: 5px;
+
+		border: 1px solid rgba(0,0,0,0.1);
+
+		/* margin: 5px 20px; */
+
+	}
+
+	.qj.stats.title{
+
+		font-size: x-small;
+
+	}
+
+}
+
+@media screen and (min-width: 480px) {
+}
+
+
+
+	
+
+
+

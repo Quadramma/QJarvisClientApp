@@ -1,0 +1,32 @@
+
+
+
+
+@media screen and (min-width: 320px) {
+	.qjclistview.qjwrapper{
+		/* padding: 5px; */
+		/* border: 1px solid rgba(0,0,0,0.1); */
+	}
+	.qjcfilter.title{
+	    font-size: x-small;	
+	    padding: 5px 0px;
+	}
+
+
+	.qjclistview table{}
+	.qjclistview table thead tr{}
+	.qjclistview table thead tr th{
+    border: 0px !important;
+}
+	.qjclistview table tr th{}
+	.qjclistview table tr{
+    border: 0px;
+}
+	.qjclistview table td{
+    border: 0px !important;
+}
+
+}
+@media screen and (min-width: 1024px) {
+
+}

@@ -1,0 +1,22 @@
+<div class="qjccombobox qjwrapper">
+<!--
+    <div class="qjcfilter item title">
+        QJCCombobox | {{cbo.name}}
+    </div>
+-->
+    <div class="item">
+        <label>{{cbo.label}}</label>
+    </div>
+    <div class="inline item code">
+        <input type="text" ng-model="cbo.code" placeholder="Codigo" ng-disabled="cbo.disabled" />
+    </div>
+    <div class="inline item text">
+        <select ng-change="cbo.change();" ng-model="cbo.selectedValue" ng-disabled="cbo.disabled">
+            <option value="-1" ng-show="cbo.initialValue==-1">Seleccione</option>
+            <option ng-repeat="item in cbo.items" value="{{item._id}}" ng-selected="cbo.ngSelected(item);">
+            {{item.description}}</option>
+        </select>
+    </div>
+
+
+</div>

@@ -1,0 +1,36 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+     <!--
+        <div class="pull-left image">
+           
+            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+
+        </div>
+        <div class="pull-left info">
+            <p>{{session.loginname.toUpperCase()}}</p>
+        </div>
+        -->
+    </div>
+    <!-- search form -->
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li ui-sref-active="active" class="">
+            <a href ui-sref="home()">
+                <i class="fa fa-dashboard"></i> 
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li ng-repeat="item in modules" ui-sref-active="active" class="">
+            <a href ui-sref="{{item.state}}()">
+                <i class="fa {{item.icon}}"></i> 
+                <span>{{item.label}}</span>
+            </a>
+        </li>
+
+
+    </ul>
+</section>

@@ -1,0 +1,57 @@
+<div class="qjclistview qjwrapper">
+<!--
+    <div class="qjcfilter item title">
+        QJCListview | {{lvw.name}}
+    </div>
+    -->
+    <table id="" class="table table-bordered table-hover dataTable" aria-describedby="">
+        <thead>
+            <tr role="row">
+
+            <th ng-repeat="column in lvw.columns" class="sorting_asc" role="columnheader" tabindex="0" aria-controls="" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">
+                {{column.label}}
+            </th>
+
+                    <!--
+                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">Loginname</th>
+                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="" rowspan="1" colspan="1" aria-sort="ascending" aria-label="">Nombre</th>
+                    <th class="sorting_desc" role="columnheader" tabindex="0" aria-controls="" rowspan="1" colspan="1" aria-sort="decending" aria-label="">Apellido</th>
+                    -->
+            </tr>
+        </thead>
+        <tbody role="alert" aria-live="polite" aria-relevant="all">
+            <tr ng-repeat="item in data.currentPage" ng-click="lvw.itemClick(item);" class="qjlink">
+
+            <td ng-repeat="column in lvw.columns">
+                {{item[column.name]}}
+            </td>
+            <!--
+                <td class=" sorting_1">{{item.loginname}}</td>
+                <td class=" ">{{item.first_name}}</td>
+                <td class=" ">{{item.last_name}}</td>
+                -->
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="dataTables_info" id="example2_info">Showing {{data.currentPageIndex+1}} to {{data.totalPages}} of {{data.totalItems}} entries</div>
+        </div>
+        <div class="col-xs-6">
+            <div class="dataTables_paginate paging_bootstrap">
+                <ul class="pagination">
+
+                    <li ng-class="{prev:true, disabled:data.pagination.disabledForPrevLink()}"><a href ng-click="data.pagination.prev()">← Previous</a>
+                    </li>
+
+                    <li ng-repeat="pageNumber in data.pagination.pageNumbers" ng-class="{active:data.pagination.activeForLink(pageNumber)}">
+                        <a href ng-click="data.pagination.goto(pageNumber)">{{pageNumber}}</a>
+                    </li>
+
+                    <li ng-class="{next:true, disabled:data.pagination.disabledForNextLink()}"><a href ng-click="data.pagination.next()">Next → </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="navbar-right" >
+    <ul class="nav navbar-nav">
+        <!-- Messages: style can be found in dropdown.less-->
+        <!--
+        <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope"></i>
+                <span class="label label-success">4</span>
+            </a>
+
+            
+            <ul class="dropdown-menu">
+                <li class="header">You have 4 messages</li>
+                <li>
+                    
+                    <ul class="menu">
+                        <li>
+                    
+                            <a href="#">
+                                <div class="pull-left">
+                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                </div>
+                                <h4>
+                                    Support Team
+                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                </h4>
+                                <p>Why not buy a new awesome theme?</p>
+                            </a>
+                        </li>
+                    
+
+                    </ul>
+                </li>
+                <li class="footer"><a href="#">See All Messages</a>
+                </li>
+            </ul>
+            
+        </li>
+        -->
+
+        <!-- Tasks: style can be found in dropdown.less -->
+
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+            <a href class="dropdown-toggle" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-user"></i>
+                <span>{{session.loginname}} <i class="caret"></i>
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header bg-light-black">
+                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                    <p>
+                        {{currentUser.first_name}} {{currentUser.last_name}}
+                        <small>{{currentUser.usergroup_description}}</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                
+                    <div class="pull-left">
+                        <a ui-sref="module-user-myprofile-edit({id: session.user._id})" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    
+                    <div class="pull-right">
+                        <a ng-click="signout();" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

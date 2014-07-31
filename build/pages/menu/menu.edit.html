@@ -1,0 +1,51 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Menu
+        <small>Panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li>
+            <a ui-sref="home()"><i class="fa fa-dashboard"></i> Home</a>
+        </li>
+
+        <li class="active">
+            <a ui-sref="module-menu-list()">Menu List</a>
+        </li>
+
+        <li class="active">{{item.description}}</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+
+
+    <form role="form">
+        <!-- text input -->
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" required placeholder="Enter . . ." ng-model="item.description">
+        </div>
+        <div class="form-group">
+            <qjccombobox cbo="usergroupCBO"></qjccombobox>
+        </div>
+        <div class="form-group">
+            <qjccombobox cbo="groupCBO"></qjccombobox>
+        </div>
+    </form>
+    <div class="box-errors">
+        <ul>
+            <li ng-repeat="error in crud.errors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
+    <div class="box-footer">
+        <button type="button" class="btn btn-primary" ng-click="save();">Save</button>
+        <button type="button" class="btn btn-secondary" ng-click="cancel();">Cancel</button>
+    </div>
+
+</section>
+<!-- /.content -->

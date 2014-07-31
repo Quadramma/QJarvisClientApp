@@ -1,0 +1,22 @@
+<div class="qjclistview container">
+    <div class="qjcfilter item title">
+        QJCSelectkey | {{slk.name}}
+    </div>
+
+    <div class="qjcfilter item">
+        <label>{{slk.label}}</label>
+    </div>
+    <div class="inline qjcfilter item code">
+        <input type="text" ng-model="slk.code" placeholder="Codigo" />
+    </div>
+    <div class="inline qjcfilter item text">
+        <input type="text" ng-model="slk.text" placeholder="Descripcion" />
+    </div>
+    <div class="inline qjcfilter item button">
+        <div class="inline jqcselectkey button" ng-click="slk.search()">
+            <i class="fa fa-search"></i> 
+            <span></span>
+        </div>
+    </div>
+
+</div>

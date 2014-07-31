@@ -1,0 +1,50 @@
+<section class="content-header">
+    <qjbreadcrumb data="breadcrumb"></qjbreadcrumb>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+
+
+    <form role="form">
+        <!-- text input -->
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" required placeholder="Enter ..." ng-model="item.loginname">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Enter ..." ng-model="item.password">
+        </div>
+        <div class="form-group">
+            <label>First name</label>
+            <input type="text" class="form-control" placeholder="Enter ..." ng-model="item.first_name">
+        </div>
+        <div class="form-group">
+            <label>Last name</label>
+            <input type="text" class="form-control" placeholder="Enter ..." ng-model="item.last_name">
+        </div>
+        <div class="form-group">
+            <div class="qjcfilter item">
+                <qjccombobox cbo="userEditUsergroupCBO"></qjccombobox>
+            </div>
+        </div>
+    </form>
+    <div class="box-errors">
+        <ul>
+            <li ng-repeat="error in crud.errors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
+    <div class="box-footer">
+        <button type="button" class="btn btn-primary" ng-click="save();">Save changes</button>
+        <button type="button" class="btn btn-secondary" ng-click="delete();">Delete</button>
+        <button type="button" class="btn btn-secondary" ng-click="cancel();">Cancel</button>
+    </div>
+
+</section>
+
+
+<!-- /.content -->

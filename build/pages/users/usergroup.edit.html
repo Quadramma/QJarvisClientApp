@@ -1,0 +1,39 @@
+<section class="content-header">
+    <qjbreadcrumb data="breadcrumb"></qjbreadcrumb>
+</section>
+<section class="content qjbg1 qjcontent">
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-lg-6 qjcol">
+            <label>Description</label>
+            <input type="text" class="form-control" required placeholder="Enter . . ." ng-model="item.description">
+        </div>
+         <div class="col-xs-12 col-lg-6 qjcol">
+            <qjccombobox cbo="profileCBO"></qjccombobox>
+        </div>
+    </div>
+
+
+    <div class="row qjsection2 qjrow">
+        <div class="col-xs-12 col-lg-5 qjcol">
+            <div class="box-errors">
+                <ul>
+                    <li ng-repeat="error in crud.errors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row qjsection2 qjrow">
+        <div class="col-xs-12 col-lg-5 qjcol">
+            <button type="button" class="btn btn-primary" ng-click="save();">Save changes</button>
+            <button type="button" class="btn btn-secondary" ng-click="delete();">Delete</button>
+            <button type="button" class="btn btn-secondary" ng-click="cancel();">Cancel</button>
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->

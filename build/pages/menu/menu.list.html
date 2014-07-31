@@ -1,0 +1,44 @@
+<section class="content-header">
+    <qjbreadcrumb data="breadcrumb"></qjbreadcrumb>
+</section>
+
+<section class="content qjbg1 qjcontent">
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-lg-6 qjcol">
+            <div class="qj module menu">
+                <div class="qj item">
+                    <a ui-sref="module-menu-edit({id: -1})" class="btn btn-default ">
+                        <i class="fa fa-plus"> New</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row qjsection2 qjrow">
+        <div class="col-xs-12 col-lg-3 qjcol qjcfilter item">
+            <label>Descripcion</label>
+            <input type="text" ng-model="menuFilter.fields.description" placeholder="Description" />
+        </div>
+        <div class="col-xs-12 col-lg-3 qjcol qjcfilter item">
+            <qjccombobox cbo="usergroupCBO"></qjccombobox>
+        </div>
+        <div class="col-xs-12 col-lg-3 qjcol">
+            <qjccombobox cbo="groupCBO"></qjccombobox>
+        </div>
+    </div>
+
+    <div class="row qjsection2 qjrow">
+        <div class="col-xs-12 col-lg-12 qjcol">
+            <div class="box-body table-responsive">
+                <div id="" class="dataTables_wrapper form-inline" role="grid">
+                    <qjclistview data="menuData" lvw="menuLVW"></qjclistview>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->

@@ -1,0 +1,24 @@
+<section class="content-header">
+    <qjbreadcrumb data="breadcrumb"></qjbreadcrumb>
+</section>
+
+<!-- Main content -->
+<section class="content qjbg1 qjcontent">
+
+
+    <div class="row qjsection1 qjrow">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 qjcol">
+            <div class="qjmodule qjchat qjinput">
+                <input ng-enter="enter()" type="text" value="" placeholder="" ng-model="input" />
+            </div>
+            <div class="qjmodule qjchat qjwindow">
+                <div ng-repeat="item in items">
+                    {{item.loginname}}: {{item.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<!-- /.content -->

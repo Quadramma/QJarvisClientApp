@@ -1,0 +1,22 @@
+<h4>{{error.message}}</h4>
+<form role="form">
+    <div class="box-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Usuario</label>
+            <input type="text" class="form-control" ng-model="loginname" placeholder="Nombre de usuario">
+        </div>
+        <div ng-class="{{classForPassword();}}">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" ng-model="password" placeholder="Password">
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group">
+            
+        </div>
+        <div class="form-group">
+            <button ng-click="submit();" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+    <!-- /.box-body -->
+</form>

@@ -1,0 +1,13 @@
+<div class="qjbig qjfont">
+        {{data.name}}
+        <small class="qjsmall qjfont">Panel</small>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li ng-repeat="item in data.list" >
+
+		<a ng-click="data.goto(item)" class="qjlink"><i class="fa {{item.fa}}"></i> {{item.name}}</a>
+
+        </li>
+        <li class="active">{{data.active}}</li>
+    </ol>
