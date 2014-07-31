@@ -15,6 +15,6 @@ all modules are defined through a `_module_init.js` file (e.g. initialize [boile
 
 all functions defined for the angular module are importing the module itself using **browserify's require** and adding properties to it (e.g. `/scripts/controllers/welcome.js`)
 
-# Caveats
+# API
 
-there are a lot of things that I don't like in this boilerplate, but I think its main caveat is that using `scripts/main/app.js` as a single source in browserify does not let gulp execute lint/shim on singular js files. If anyone comes with a clever (and simple) solution to fix it, more than welcomed!
+https://github.com/Quadramma/qjarvis.api
